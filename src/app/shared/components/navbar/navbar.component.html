@@ -1,0 +1,33 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sideNAv>
+    <mat-nav-list (click)="sideNAv.close()">
+      <a mat-list-item routerLink="" routerLinkActive="active">Home</a>
+      <a mat-list-item routerLink="home" routerLinkActive="active">Posts</a>
+      <a mat-list-item routerLink="home/addPost" routerLinkActive="active"
+        >Add Posts</a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-toolbar color="primary" class="d-flex justify-content-between">
+    <div class="col-md-6 text-left">
+      <div class="">
+        <button mat-button (click)="sideNAv.open()">
+          <mat-icon> menu </mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="col-md-6 text-right">
+      <div class="d-none d-sm-block">
+        <a mat-raised-button class="mr-3" routerLink="home">Home</a>
+        <a mat-raised-button color="accent" routerLink="home/addPost"
+          >Add Post
+        </a>
+      </div>
+    </div>
+  </mat-toolbar>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>

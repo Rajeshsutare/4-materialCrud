@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col">
+    <h1 class="text-center mt-4" (click)="onAddPost()">
+      Add Post
+      <button mat-mini-fab type="button">
+        <mat-icon> add </mat-icon>
+      </button>
+    </h1>
+  </div>
+</div>
+
+<app-post-card
+  (editObj)="onEditObj($event)"
+  [postObj]="post"
+  *ngFor="let post of postData"
+>
+</app-post-card>

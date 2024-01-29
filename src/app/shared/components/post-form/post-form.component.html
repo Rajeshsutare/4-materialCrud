@@ -1,0 +1,61 @@
+<form [formGroup]="postForm" (ngSubmit)="onPOstFormSubmit()">
+  <div class="form-group">
+    <label for="title">title</label>
+    <input
+      type="text"
+      name="title"
+      id="title"
+      formControlName="title"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <label for="content">content</label>
+    <input
+      type="text"
+      name="content"
+      id="content"
+      formControlName="content"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <select
+      name="userId"
+      id="userId"
+      class="form-control"
+      formControlName="userId"
+    >
+      <option [value]="post" *ngFor="let post of idArray">{{ post }}</option>
+    </select>
+  </div>
+  <div class="from-group">
+    <div class="d-flex justify-content-between">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        *ngIf="!isInEditMode"
+      >
+        submit
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        *ngIf="isInEditMode"
+        (click)="onUpdatePost()"
+      >
+        Update
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        type="button"
+        (click)="onCloseDilog()"
+      >
+        close
+      </button>
+    </div>
+  </div>
+</form>
